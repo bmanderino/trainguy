@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
-import {animals, adjectives} from "../../library/"
+import { useState } from 'react'
+import {animals, adjectives} from "../../library"
 
-const getRandom = (arr) => arr[Math.floor(Math.random() * arr.length)];
+const getRandom = (arr: string) => arr[Math.floor(Math.random() * arr.length)];
 
-const formatWithArticle = (word) => /^[aeiou]/i.test(word) ? `an ${word}` : `a ${word}`;
+const formatWithArticle = (word: string) => /^[aeiou]/i.test(word) ? `an ${word}` : `a ${word}`;
 
 function createSignOff() {
   const adj = getRandom(adjectives);
