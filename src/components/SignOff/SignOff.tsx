@@ -11,15 +11,69 @@ function createSignOff() {
   return `You are, as always, ${formatWithArticle(adj)} ${animal}.`;
 }
 
+function getNextSignOff(previous: string) {
+  if (!adjectives.length || !animals.length) return previous;
+
+  let next = createSignOff();
+  let attempts = 0;
+  const maxAttempts = 10;
+
+  while (next === previous && attempts < maxAttempts) {
+    next = createSignOff();
+    attempts += 1;
+  }
+
+  return next;
+}
+
 const SignOff = () => {
-  const [signOff, setSignOff] = useState(createSignOff);
+  const [signOff, setSignOff] = useState(() => createSignOff());
+  const [copied, setCopied] = useState(false);
+
+  async function handleCopy() {
+    try {
+      if (!navigator.clipboard) {
+        throw new Error("Clipboard API not available");
+      }
+
+      await navigator.clipboard.writeText(signOff);
+      setCopied(true);
+
+      setTimeout(() => {
+        setCopied(false);
+      }, 1200);
+    } catch {
+      // Fallback if clipboard API is not supported
+      alert("Could not copy automatically — please copy it manually.");
+    }
+  }
+
+  function handleNew() {
+    setSignOff((prev) => getNextSignOff(prev));
+    setCopied(false);
+  }
 
   return (
-    <div onClick={() => setSignOff(createSignOff())} style={{ cursor: "pointer" }}>
-      <p>{signOff}</p>
-      <small>(click for another)</small>
-    </div>
+    <section className="signoff">
+      <p className="signoff__text" aria-live="polite">
+        {signOff}
+      </p>
+
+      <div className="signoff__controls">
+        <button className="signoff__button" onClick={handleNew}>
+          Another one
+        </button>
+        <button
+          className="signoff__button signoff__button--secondary"
+          onClick={handleCopy}
+        >
+          {copied ? "Copied!" : "Copy"}
+        </button>
+      </div>
+    </section>
   );
 };
+
+
 
 export default SignOff

@@ -240,6 +240,5 @@ export const animals = [
 "swan",
 ]
 
-export default animals
 
 //T-Z coming... eventually

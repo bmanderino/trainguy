@@ -1,17 +1,80 @@
-body {
-  background-color: lightgoldenrodyellow;
-}
-
-.container {
+.app {
+  min-height: 100vh;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
   align-items: center;
-  height: 75vh;
-  padding: 25px;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+  background: radial-gradient(circle at top, #fff5c8 0, #f5f2de 40%, #e4dcc5 100%);
 }
 
-p {
-  font-size: 40px;
-  font-weight: bold;
-  font-family: Arial, Helvetica, sans-serif;
+.app__header h1 {
+  font-size: 2rem;
+  margin: 0 0 0.5rem;
+}
+
+.app__header p {
+  margin: 0;
+  opacity: 0.8;
+}
+
+.app__footer {
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+
+/* Sign-off card */
+
+.signoff {
+  background: #fffdf5;
+  border-radius: 1.25rem;
+  padding: 2rem 2.5rem;
+  min-width: 38rem;
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.signoff__text {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 0 1.5rem;
+}
+
+.signoff__controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.signoff__button {
+  padding: 0.6rem 1.4rem;
+  border-radius: 999px;
+  border: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  background: #222;
+  color: #fdfdfd;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transform: translateY(0);
+  transition: transform 0.12s ease, box-shadow 0.12s ease,
+    background 0.12s ease, color 0.12s ease;
+}
+
+.signoff__button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
+}
+
+.signoff__button:active {
+  transform: translateY(1px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.signoff__button--secondary {
+  background: #f5f2de;
+  color: #222;
 }

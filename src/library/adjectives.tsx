@@ -381,10 +381,6 @@ export const adjectives = [
 "zippy"
 ]
 
-export default {
-  adjectives
-}
-
 
 
 

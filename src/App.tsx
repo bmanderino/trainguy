@@ -3,7 +3,7 @@ import SignOff from "./components/SignOff"
 
 function App() {
   return (
-    <div className='container'>
+    <div className='app'>
       <SignOff />
     </div>
   );
