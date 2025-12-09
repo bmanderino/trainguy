@@ -1,4 +1,4 @@
-export const animals = [
+export const animals: string[] = [
   "aardvark",
   "alpaca",
   "armadillo",

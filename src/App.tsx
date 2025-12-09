@@ -2,7 +2,7 @@ import { useState } from 'react'
 import {animals, adjectives} from "./library"
 import './App.css'
 
-const getRandom = (arr: string) => arr[Math.floor(Math.random() * arr.length)];
+const getRandom = (arr: string[]) => arr[Math.floor(Math.random() * arr.length)];
 
 const formatWithArticle = (word: string) => /^[aeiou]/i.test(word) ? `an ${word}` : `a ${word}`;
 

@@ -1,4 +1,4 @@
-export const adjectives = [
+export const adjectives: string[] = [
   "abrupt",
 "acidic",
 "adorable",
