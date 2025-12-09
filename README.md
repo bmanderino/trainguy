@@ -9,6 +9,12 @@ Click a button to get a randomly generated closing statement in the style of Tra
 
 ---
 
+## Demo
+
+- Deployed at: <http://trainguy-signoff.vercel.app/>
+
+---
+
 ## Features
 
 - 🎲 Random Train Guy–style sign-offs (`You are, as always, a(n) X Y.`)
