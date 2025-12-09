@@ -1,27 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {animals, adjectives} from "../../library/"
 
-const randomWordFromArray = (array) => {
-  let number = (Math.ceil(Math.random() * (0, array.length - 1)))
-  return array.find((item, index) => index === number)
-}
+const getRandom = (arr) => arr[Math.floor(Math.random() * arr.length)];
 
-const correctArticleAndAdjective = (array) => {
-  //get a word and determin if it should be preceeded by "a" or "an"
-  let word = randomWordFromArray(array)
-  let vowels = ["a","e","i","o","u"]
-  if (vowels.includes(word[0])){
-    return `an ${word}`
-  } else {
-    return `a ${word}`
-  }
+const formatWithArticle = (word) => /^[aeiou]/i.test(word) ? `an ${word}` : `a ${word}`;
+
+function createSignOff() {
+  const adj = getRandom(adjectives);
+  const animal = getRandom(animals);
+  return `You are, as always, ${formatWithArticle(adj)} ${animal}.`;
 }
 
 const SignOff = () => {
+  const [signOff, setSignOff] = useState(createSignOff);
+
   return (
-    // <div>You are, as always, a dilapidated muskrat.</div>
-    <p>You are, as always, {correctArticleAndAdjective(adjectives)} {randomWordFromArray(animals)}.</p>
-  )
-}
+    <div onClick={() => setSignOff(createSignOff())} style={{ cursor: "pointer" }}>
+      <p>{signOff}</p>
+      <small>(click for another)</small>
+    </div>
+  );
+};
 
 export default SignOff
