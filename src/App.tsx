@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import {animals, adjectives} from "./library"
+import {animals} from "./library/animals"
+import {adjectives} from "./library/adjectives"
 import './App.css'
 
 const getRandom = (arr: string[]) => arr[Math.floor(Math.random() * arr.length)];
